@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2018/6/4 21:56:08                            */
+/* Created on:     2018/6/5 18:21:36                            */
 /*==============================================================*/
 
 
@@ -41,7 +41,6 @@ create table MarketDepth
 /*==============================================================*/
 create table "Order"
 (
-   broker               int not null,
    id                   int not null,
    code                 varchar(8) not null,
    product              varchar(16) not null,
@@ -75,9 +74,6 @@ create table Product
 
 alter table MarketDepth add constraint FK_Reference_3 foreign key (product)
       references Product (code) on delete restrict on update restrict;
-
-alter table "Order" add constraint FK_Reference_1 foreign key (broker)
-      references Broker (id) on delete restrict on update restrict;
 
 alter table "Order" add constraint FK_Reference_2 foreign key (code)
       references Product (code) on delete restrict on update restrict;
